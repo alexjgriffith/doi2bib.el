@@ -1,0 +1,75 @@
+#+TITLE: Doi2Bib.el
+#+author: Alexander Griffith
+
+[[LICENSE][file:https://img.shields.io/badge/License-GPL%20v3-blue.svg]]
+
+`doi2bib.el` is a small library meant to make generating BibTex files from Document Object Identifiers (DOIs) as simple as src_elisp[]{M-x doi2bib 10.1109/5.771073}
+
+`doi2bib.el` can take you from a list of DOIs to a complete set of references. 
+
+It can accept a single DOIs, a list of DOIs, or a file name directed at a list of newline separated DOIs.
+
+
+
+** Instalation
+Clone this repository and add the lisp directory to your load path.
+Then, require it and go.
+
+#+BEGIN_SRC emacs-lisp
+    (add-to-list 'load-path "/path/to/doi2bib.el/lisp")
+    (require 'doi2bib)
+#+END_SRC
+
+Or, with =use-package=:
+
+#+BEGIN_SRC emacs-lisp
+  (use-package doi2bib
+    :load-path "/path/to/doi2bib.el/lisp")
+#+END_SRC
+
+This package will eventually be submitted to melpa
+
+** Usage
+By default all BibTex results will be appended to src_elsip[]{*doi2bib-scratch\*}. 
+You can change this by configuring the custom variable src_elsip[]{doi2bib-output-buffer}
+
+*** A Single BibTex Reference
+A single file can be converted interactively by running src_elisp[]{M-x doi2bib 10.1109/5.771073}.
+By default the output would be found in src_elisp[]{*doi2bib-scratch*}. 
+Note that the src_elisp[]{doi2bib} call is asynchronous. 
+
+or
+
+#+BEGIN_SRC elisp
+(doi2bib 10.1109/5.771073)
+#+END_SRC
+
+You can set the output buffer name as well with
+
+#+BEGIN_SRC elisp
+(doi2bib 10.1109/5.771073 "your-buffer-name")
+#+END_SRC
+
+
+*** A List of DOIs
+Currently there is no interactive option for downloading a list of DOIs. 
+Either execute the following from a scratch buffer or in src_elisp[]{M-:}
+
+#+BEGIN_SRC elisp
+(doi2bib-get-doi-list5 '(10.1109/5.771073))
+#+END_SRC
+
+*** A File of DOIs
+*This is still a work in progress*
+
+The file if DOIs you wish to download BibTex references for
+#+BEGIN_SRC
+10.1109/5.771073
+#+END_SRC
+
+You can convert the buffer you are currently in interactively by executing src_elisp[]{M-x doi2bib-convert-file}
+
+To convert files that are not your current buffer execute
+#+BEGIN_SRC elisp
+(doi2bib-convert-file "your-file-name")
+#+END_SRC
