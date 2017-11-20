@@ -3,9 +3,9 @@
 
 [[LICENSE][file:https://img.shields.io/badge/License-GPL%20v3-blue.svg]]
 
-`doi2bib.el` is a small library meant to make generating BibTex files from Document Object Identifiers (DOIs) as simple as src_elisp[]{M-x doi2bib 10.1109/5.771073}
+~doi2bib.el~ is a small library meant to make generating BibTex files from Document Object Identifiers (DOIs) as simple as ~M-x doi2bib 10.1109/5.771073~
 
-`doi2bib.el` can take you from a list of DOIs to a complete set of references. 
+~doi2bib.el~ can take you from a list of DOIs to a complete set of references. 
 
 It can accept a single DOIs, a list of DOIs, or a file name directed at a list of newline separated DOIs.
 
@@ -30,13 +30,13 @@ Or, with =use-package=:
 This package will eventually be submitted to melpa
 
 ** Usage
-By default all BibTex results will be appended to src_elsip[:exports code]{*doi2bib-scratch*}. 
-You can change this by configuring the custom variable src_elsip[]{doi2bib-output-buffer}
+By default all BibTex results will be appended to ~*doi2bib-scratch*~. 
+You can change this by configuring the custom variable ~doi2bib-output-buffer~
 
 *** A Single BibTex Reference
-A single file can be converted interactively by running src_elisp[:exports code]{M-x doi2bib 10.1109/5.771073}.
-By default the output would be found in src_elisp[:exports code]{*doi2bib-scratch*}. 
-Note that the src_elisp[:exports code]{doi2bib} call is asynchronous. 
+A single file can be converted interactively by running ~M-x doi2bib 10.1109/5.771073~.
+By default the output would be found in ~*doi2bib-scratch*~. 
+Note that the ~doi2bib~ call is asynchronous. 
 
 or
 
@@ -53,7 +53,7 @@ You can set the output buffer name as well with
 
 *** A List of DOIs
 Currently there is no interactive option for downloading a list of DOIs. 
-Either execute the following from a scratch buffer or in src_elisp[:exports code]{M-:}
+Either execute the following from a scratch buffer or in ~M-:~
 
 #+BEGIN_SRC elisp
 (doi2bib-get-doi-list5 '(10.1109/5.771073))
@@ -67,7 +67,7 @@ The file if DOIs you wish to download BibTex references for
 10.1109/5.771073
 #+END_SRC
 
-You can convert the buffer you are currently in interactively by executing src_elisp[:exports code]{M-x doi2bib-convert-file}
+You can convert the buffer you are currently in interactively by executing ~M-x doi2bib-convert-file~
 
 To convert files that are not your current buffer execute
 #+BEGIN_SRC elisp
