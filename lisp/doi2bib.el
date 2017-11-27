@@ -26,7 +26,7 @@
 ;;; Commentary:
 
 ;;; Code:
-(defcustom doi2bib-output-buffer "*doi2bib-scratch"
+(defcustom doi2bib-output-buffer "doi2bib-scratch"
   "The temporary output buffer for BibTex results.")
 
 (defun doi2bib-get-request (doi &optional buffer)
@@ -55,6 +55,10 @@
   (interactive)
   (warn "stub")
   )
+
+(defun doi2bib (doi &optional buffer)
+  (interactive "sDOI:")
+  (doi2bib-get-doi-list '(doi) doi2bib-output-buffer ))
 
 (defun doi2bib-select-pair ()
   (interactive)

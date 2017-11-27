@@ -1,9 +1,9 @@
-#+TITLE: Doi2Bib.el
+#+TITLE: doi2bib.el
 #+author: Alexander Griffith
 
 [[LICENSE][file:https://img.shields.io/badge/License-GPL%20v3-blue.svg]]
 
-~doi2bib.el~ is a small library meant to make generating BibTex files from Document Object Identifiers (DOIs) as simple as ~M-x doi2bib 10.1109/5.771073~
+~doi2bib.el~ is a small library meant to make generating BibTex files from Document Object Identifiers (DOIs) as simple as ~M-x doi2bib 10.1109/5.771073~.
 
 ~doi2bib.el~ can take you from a list of DOIs to a complete set of references. 
 
@@ -27,11 +27,11 @@ Or, with =use-package=:
     :load-path "/path/to/doi2bib.el/lisp")
 #+END_SRC
 
-This package will eventually be submitted to melpa
+This package will eventually be submitted to melpa.
 
 ** Usage
 By default all BibTex results will be appended to ~*doi2bib-scratch*~. 
-You can change this by configuring the custom variable ~doi2bib-output-buffer~
+You can change this by configuring the custom variable ~doi2bib-output-buffer~.
 
 *** A Single BibTex Reference
 A single file can be converted interactively by running ~M-x doi2bib 10.1109/5.771073~.
@@ -73,3 +73,11 @@ To convert files that are not your current buffer execute
 #+BEGIN_SRC elisp
 (doi2bib-convert-file "your-file-name")
 #+END_SRC
+
+** Tasks To Complete
+1. [ ] Fill out doi2bib-convert-file stub
+2. [ ] Make sure only bibtex-output-file is writen to
+3. [ ] Finish documenting functions
+4. [ ] Complete writing integration tests 
+5. [ ] Implement continous integration with travis cl
+
